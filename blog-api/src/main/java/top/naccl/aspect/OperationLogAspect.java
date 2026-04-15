@@ -17,7 +17,7 @@ import top.naccl.util.JacksonUtils;
 import top.naccl.util.JwtUtils;
 import top.naccl.util.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**

@@ -3,26 +3,38 @@ package top.naccl.util;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.UnsupportedJwtException;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.Date;
 
 /**
- * @Description: JWT工具类
+ * @Description: JWT工具类 (适配 jjwt 0.11.x+)
  * @Author: Naccl
  * @Date: 2020-09-02
  */
 @Component
 public class JwtUtils {
 	private static long expireTime;
-	private static String secretKey;
+	private static String secretKeyString;
+	// 新版本推荐使用 SecretKey 对象
+	private static SecretKey secretKey;
 
 	@Value("${token.secretKey}")
 	public void setSecretKey(String secretKey) {
-		JwtUtils.secretKey = secretKey;
+		JwtUtils.secretKeyString = secretKey;
+		// 初始化时将字符串转换为 SecretKey
+		// 注意：HS512 算法要求密钥长度足够，这里直接使用字符串字节作为密钥
+		JwtUtils.secretKey = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 	}
 
 	@Value("${token.expireTime}")
@@ -32,9 +44,6 @@ public class JwtUtils {
 
 	/**
 	 * 判断token是否存在
-	 *
-	 * @param token
-	 * @return
 	 */
 	public static boolean judgeTokenIsExist(String token) {
 		return token != null && !"".equals(token) && !"null".equals(token);
@@ -42,65 +51,77 @@ public class JwtUtils {
 
 	/**
 	 * 生成token
-	 *
-	 * @param subject
-	 * @return
 	 */
 	public static String generateToken(String subject) {
-		String jwt = Jwts.builder()
+		Date now = new Date();
+		Date expiryDate = new Date(now.getTime() + expireTime);
+
+		return Jwts.builder()
 				.setSubject(subject)
-				.setExpiration(new Date(System.currentTimeMillis() + expireTime))
-				.signWith(SignatureAlgorithm.HS512, secretKey)
+				.setIssuedAt(now) // 建议设置签发时间
+				.setExpiration(expiryDate)
+				// 新版本签名方式：signWith(Key, Algorithm)
+				.signWith(secretKey, SignatureAlgorithm.HS512)
 				.compact();
-		return jwt;
 	}
 
 	/**
 	 * 生成带角色权限的token
-	 *
-	 * @param subject
-	 * @param authorities
-	 * @return
 	 */
 	public static String generateToken(String subject, Collection<? extends GrantedAuthority> authorities) {
 		StringBuilder sb = new StringBuilder();
 		for (GrantedAuthority authority : authorities) {
 			sb.append(authority.getAuthority()).append(",");
 		}
-		String jwt = Jwts.builder()
+
+		Date now = new Date();
+		Date expiryDate = new Date(now.getTime() + expireTime);
+
+		return Jwts.builder()
 				.setSubject(subject)
-				.claim("authorities", sb)
-				.setExpiration(new Date(System.currentTimeMillis() + expireTime))
-				.signWith(SignatureAlgorithm.HS512, secretKey)
+				.claim("authorities", sb.toString()) // 建议存为 String 而非 StringBuilder
+				.setIssuedAt(now)
+				.setExpiration(expiryDate)
+				.signWith(secretKey, SignatureAlgorithm.HS512)
 				.compact();
-		return jwt;
 	}
 
 	/**
 	 * 生成自定义过期时间token
-	 *
-	 * @param subject
-	 * @param expireTime
-	 * @return
 	 */
 	public static String generateToken(String subject, long expireTime) {
-		String jwt = Jwts.builder()
+		Date now = new Date();
+		Date expiryDate = new Date(now.getTime() + expireTime);
+
+		return Jwts.builder()
 				.setSubject(subject)
-				.setExpiration(new Date(System.currentTimeMillis() + expireTime))
-				.signWith(SignatureAlgorithm.HS512, secretKey)
+				.setIssuedAt(now)
+				.setExpiration(expiryDate)
+				.signWith(secretKey, SignatureAlgorithm.HS512)
 				.compact();
-		return jwt;
 	}
 
-
 	/**
-	 * 获取tokenBody同时校验token是否有效（无效则会抛出异常）
-	 *
-	 * @param token
-	 * @return
+	 * 获取tokenBody同时校验token是否有效
 	 */
 	public static Claims getTokenBody(String token) {
-		Claims claims = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token.replace("Bearer", "")).getBody();
-		return claims;
+		try {
+			// 新版本解析方式：parserBuilder().setSigningKey().build().parseClaimsJws()
+			return Jwts.parser()
+					.setSigningKey(secretKey)
+					.build()
+					.parseClaimsJws(token.replace("Bearer ", "")) // 注意这里增加了空格，通常 Bearer 后有空格
+					.getBody();
+		} catch (ExpiredJwtException e) {
+			throw new RuntimeException("Token 已过期", e);
+		} catch (UnsupportedJwtException e) {
+			throw new RuntimeException("不支持的 Token", e);
+		} catch (MalformedJwtException e) {
+			throw new RuntimeException("Token 格式错误", e);
+		} catch (SignatureException e) {
+			throw new RuntimeException("签名验证失败", e);
+		} catch (Exception e) {
+			throw new RuntimeException("Token 解析失败", e);
+		}
 	}
 }

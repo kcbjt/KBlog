@@ -7,9 +7,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.retry.annotation.Backoff;
-import org.springframework.retry.annotation.EnableRetry;
-import org.springframework.retry.annotation.Retryable;
+import org.springframework.resilience.annotation.EnableResilientMethods;
+import org.springframework.resilience.annotation.Retryable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
@@ -18,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 import top.naccl.config.properties.BlogProperties;
 import top.naccl.config.properties.TelegramProperties;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +28,7 @@ import java.util.Map;
  * @date: 2022-01-22
  */
 @Slf4j
-@EnableRetry
+@EnableResilientMethods
 @EnableAsync
 @Lazy
 @Component
@@ -86,9 +86,12 @@ public class TelegramUtils {
 	 * @param data body of post
 	 */
 	@Retryable(
-			include = {RestClientException.class},
-			maxAttempts = 5,
-			backoff = @Backoff(delay = 5000L, multiplier = 2)
+			includes = { IOException.class, RestClientException.class },
+			maxRetries = 5,                        // 重试 3 次
+			delay = 1000,                          // 初始间隔 1 秒
+			multiplier = 2.0,                      // 倍数：1s -> 2s -> 4s
+			maxDelay = 10000,                      // 最大间隔不超过 10 秒
+			jitter = 500                          // 增加 500ms 的随机抖动
 	)
 	@Async
 	public void sendByAutoCheckReverseProxy(String url, Map<String, Object> data) {

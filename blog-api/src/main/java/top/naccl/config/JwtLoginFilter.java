@@ -10,7 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 import top.naccl.entity.LoginLog;
 import top.naccl.entity.User;
 import top.naccl.exception.BadRequestException;
@@ -21,9 +21,9 @@ import top.naccl.util.JacksonUtils;
 import top.naccl.util.JwtUtils;
 import top.naccl.util.StringUtils;
 
-import javax.servlet.FilterChain;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -39,7 +39,7 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
 	ThreadLocal<String> currentUsername = new ThreadLocal<>();
 
 	protected JwtLoginFilter(String defaultFilterProcessesUrl, AuthenticationManager authenticationManager, LoginLogService loginLogService) {
-		super(new AntPathRequestMatcher(defaultFilterProcessesUrl));
+		super(PathPatternRequestMatcher.withDefaults().matcher(defaultFilterProcessesUrl));
 		setAuthenticationManager(authenticationManager);
 		this.loginLogService = loginLogService;
 	}
