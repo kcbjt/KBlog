@@ -25,8 +25,8 @@ import java.util.Set;
 
 /**
  * @Description: Markdown转换
- * @Author: Naccl
- * @Date: 2020-04-29
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class MarkdownUtils {
 	//为h标签生成id 供tocbot目录生成

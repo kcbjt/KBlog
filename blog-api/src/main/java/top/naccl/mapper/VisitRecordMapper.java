@@ -8,8 +8,8 @@ import java.util.List;
 
 /**
  * @Description: 访问记录持久层接口
- * @Author: Naccl
- * @Date: 2021-02-23
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Mapper
 @Repository

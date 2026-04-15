@@ -6,8 +6,8 @@ import top.naccl.util.common.SpringContextUtils;
 /**
  * 评论提醒方式
  *
- * @author: Naccl
- * @date: 2022-01-22
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class ChannelFactory {
 	/**

@@ -6,8 +6,8 @@ import org.springframework.util.DigestUtils;
 
 /**
  * @Description: Hash工具类
- * @Author: Naccl
- * @Date: 2020-11-17
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class HashUtils {
 	private static final BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();

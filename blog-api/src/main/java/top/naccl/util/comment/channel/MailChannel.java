@@ -16,8 +16,8 @@ import java.util.Map;
 /**
  * 邮件提醒方式
  *
- * @author: Naccl
- * @date: 2022-01-22
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Lazy
 @Component

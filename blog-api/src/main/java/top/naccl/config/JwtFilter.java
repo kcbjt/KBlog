@@ -22,8 +22,8 @@ import java.util.List;
 
 /**
  * @Description: JWT请求过滤器
- * @Author: Naccl
- * @Date: 2020-07-21
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class JwtFilter extends GenericFilterBean {
 	@Override

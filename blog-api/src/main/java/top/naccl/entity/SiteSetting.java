@@ -8,8 +8,8 @@ import lombok.ToString;
 
 /**
  * @Description: 站点设置
- * @Author: Naccl
- * @Date: 2020-08-09
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @NoArgsConstructor
 @Getter

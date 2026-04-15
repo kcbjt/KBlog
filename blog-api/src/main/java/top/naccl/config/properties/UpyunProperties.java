@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 又拍云配置(目前用于评论中QQ头像的图床)
  *
- * @author: Naccl
- * @date: 2022-05-26
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @NoArgsConstructor
 @Getter

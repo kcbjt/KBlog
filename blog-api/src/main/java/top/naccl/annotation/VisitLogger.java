@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 
 /**
  * @Description: 用于需要记录访客访问日志的方法
- * @Author: Naccl
- * @Date: 2020-12-04
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

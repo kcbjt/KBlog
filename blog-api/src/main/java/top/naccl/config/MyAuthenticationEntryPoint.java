@@ -14,8 +14,8 @@ import java.io.PrintWriter;
 
 /**
  * @Description: 未登录 拒绝访问
- * @Author: Naccl
- * @Date: 2020-07-21
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Component
 public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {

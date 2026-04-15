@@ -15,8 +15,8 @@ import top.naccl.util.upload.channel.FileUploadChannel;
 
 /**
  * @Description: 图片下载保存工具类
- * @Author: Naccl
- * @Date: 2021-11-11
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Component
 @DependsOn("springContextUtils")

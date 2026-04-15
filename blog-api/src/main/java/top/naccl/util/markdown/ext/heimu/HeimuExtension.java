@@ -15,8 +15,8 @@ import top.naccl.util.markdown.ext.heimu.internal.HeimuTextContentNodeRenderer;
 
 /**
  * @Description: 自定义黑幕拓展
- * @Author: Naccl
- * @Date: 2020-05-13
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class HeimuExtension implements Parser.ParserExtension, HtmlRenderer.HtmlRendererExtension, TextContentRenderer.TextContentRendererExtension {
 	private HeimuExtension() {

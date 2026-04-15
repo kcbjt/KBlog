@@ -10,8 +10,8 @@ import java.util.Date;
 
 /**
  * @Description: 访客更新DTO
- * @Author: Naccl
- * @Date: 2021-02-05
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @AllArgsConstructor
 @NoArgsConstructor

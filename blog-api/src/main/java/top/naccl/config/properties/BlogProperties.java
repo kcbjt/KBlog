@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 博客配置(目前用于评论提醒模板中的超链接)
  *
- * @author: Naccl
- * @date: 2022-01-22
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @NoArgsConstructor
 @Getter

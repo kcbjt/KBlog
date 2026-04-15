@@ -9,8 +9,8 @@ import lombok.ToString;
 /**
  * Telegram新消息
  *
- * @author: Naccl
- * @date: 2022-01-24
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @NoArgsConstructor
 @Getter

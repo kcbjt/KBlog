@@ -9,8 +9,8 @@ import java.util.List;
 
 /**
  * @Description: 博客评论持久层接口
- * @Author: Naccl
- * @Date: 2020-08-03
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Mapper
 @Repository

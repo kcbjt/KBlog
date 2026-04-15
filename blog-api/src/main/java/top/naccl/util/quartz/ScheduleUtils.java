@@ -14,8 +14,8 @@ import top.naccl.entity.ScheduleJob;
 
 /**
  * @Description: 定时任务操作工具类
- * @Author: Naccl
- * @Date: 2020-11-01
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class ScheduleUtils {
 	private final static String JOB_NAME = "TASK_";

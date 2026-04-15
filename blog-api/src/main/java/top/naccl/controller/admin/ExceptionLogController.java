@@ -14,8 +14,8 @@ import top.naccl.service.ExceptionLogService;
 
 /**
  * @Description: 异常日志后台管理
- * @Author: Naccl
- * @Date: 2020-12-04
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @RestController
 @RequestMapping("/admin")

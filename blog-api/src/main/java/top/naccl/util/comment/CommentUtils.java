@@ -33,8 +33,8 @@ import java.util.Map;
 /**
  * 评论工具类
  *
- * @author: Naccl
- * @date: 2022-01-22
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Component
 @DependsOn("springContextUtils")

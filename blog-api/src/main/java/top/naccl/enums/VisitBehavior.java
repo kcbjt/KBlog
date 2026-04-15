@@ -3,8 +3,8 @@ package top.naccl.enums;
 /**
  * 访问行为枚举类
  *
- * @author: Naccl
- * @date: 2022-01-08
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public enum VisitBehavior {
 	UNKNOWN("UNKNOWN", "UNKNOWN"),

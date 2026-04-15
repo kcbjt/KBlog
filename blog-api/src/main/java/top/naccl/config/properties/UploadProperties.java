@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 静态文件上传访问路径配置(目前用于评论中QQ头像的本地存储)
  *
- * @author: Naccl
- * @date: 2022-01-23
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @NoArgsConstructor
 @Getter

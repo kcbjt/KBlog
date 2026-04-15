@@ -3,8 +3,8 @@ package top.naccl.constant;
 /**
  * 评论相关常量
  *
- * @author: Naccl
- * @date: 2022-01-22
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class CommentConstants {
 	/**

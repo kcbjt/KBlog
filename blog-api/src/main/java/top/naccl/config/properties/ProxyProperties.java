@@ -11,8 +11,8 @@ import org.springframework.http.client.SimpleClientHttpRequestFactory;
 /**
  * 代理配置(目前用于RestTemplate发送tg消息)
  *
- * @author: Naccl
- * @date: 2022-01-22
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @NoArgsConstructor
 @Getter

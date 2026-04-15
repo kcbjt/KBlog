@@ -15,8 +15,8 @@ import java.util.List;
 
 /**
  * @Description: 异常日志业务层实现
- * @Author: Naccl
- * @Date: 2020-12-03
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Service
 public class ExceptionLogServiceImpl implements ExceptionLogService {

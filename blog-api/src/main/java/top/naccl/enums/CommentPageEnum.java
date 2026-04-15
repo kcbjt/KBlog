@@ -3,8 +3,8 @@ package top.naccl.enums;
 /**
  * 评论页面枚举类
  *
- * @author: Naccl
- * @date: 2022-01-22
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public enum CommentPageEnum {
 	UNKNOWN("UNKNOWN", "UNKNOWN"),

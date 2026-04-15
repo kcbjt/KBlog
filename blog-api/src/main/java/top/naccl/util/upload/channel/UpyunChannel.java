@@ -12,8 +12,8 @@ import java.util.UUID;
 /**
  * 又拍云存储上传方式
  *
- * @author: Naccl
- * @date: 2022-05-26
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Lazy
 @Component

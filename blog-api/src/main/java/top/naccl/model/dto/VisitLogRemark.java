@@ -9,8 +9,8 @@ import lombok.ToString;
 /**
  * 访问日志备注
  *
- * @author: Naccl
- * @date: 2022-01-08
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @AllArgsConstructor
 @NoArgsConstructor

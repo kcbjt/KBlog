@@ -3,8 +3,8 @@ package top.naccl.constant;
 /**
  * 站点设置常量
  *
- * @author: Naccl
- * @date: 2022-01-28
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class SiteSettingConstants {
 	public static final String COPYRIGHT = "copyright";

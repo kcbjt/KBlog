@@ -8,8 +8,8 @@ import top.naccl.util.upload.UploadUtils;
 
 /**
  * @Description: 获取QQ昵称头像信息
- * @Author: Naccl
- * @Date: 2020-09-10
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class QQInfoUtils {
 	private static RestTemplate restTemplate = new RestTemplate();

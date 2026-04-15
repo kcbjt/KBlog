@@ -2,8 +2,8 @@ package top.naccl.constant;
 
 /**
  * @Description: Redis key配置
- * @Author: Naccl
- * @Date: 2020-09-27
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class RedisKeyConstants {
 	/**

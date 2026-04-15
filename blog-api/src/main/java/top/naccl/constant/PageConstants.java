@@ -3,8 +3,8 @@ package top.naccl.constant;
 /**
  * 页面相关常量
  *
- * @author: Naccl
- * @date: 2022-01-23
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class PageConstants {
 	/**

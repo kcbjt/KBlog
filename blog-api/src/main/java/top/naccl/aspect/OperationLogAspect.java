@@ -22,8 +22,8 @@ import java.util.Map;
 
 /**
  * @Description: AOP记录操作日志
- * @Author: Naccl
- * @Date: 2020-11-29
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Component
 @Aspect

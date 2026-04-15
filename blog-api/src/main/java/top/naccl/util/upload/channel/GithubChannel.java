@@ -16,8 +16,8 @@ import java.util.UUID;
 /**
  * GitHub上传方式
  *
- * @author: Naccl
- * @date: 2022-01-23
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Lazy
 @Component

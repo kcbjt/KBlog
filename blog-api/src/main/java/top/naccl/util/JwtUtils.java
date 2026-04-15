@@ -19,8 +19,8 @@ import java.util.Date;
 
 /**
  * @Description: JWT工具类 (适配 jjwt 0.11.x+)
- * @Author: Naccl
- * @Date: 2020-09-02
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Component
 public class JwtUtils {

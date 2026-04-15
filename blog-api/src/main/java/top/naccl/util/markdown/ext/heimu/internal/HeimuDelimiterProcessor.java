@@ -10,8 +10,8 @@ import top.naccl.util.markdown.ext.heimu.Heimu;
 
 /**
  * @Description: 定界
- * @Author: Naccl
- * @Date: 2020-05-13
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class HeimuDelimiterProcessor implements DelimiterProcessor {
     @Override

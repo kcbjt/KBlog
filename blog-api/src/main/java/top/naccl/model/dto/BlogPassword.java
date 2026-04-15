@@ -7,8 +7,8 @@ import lombok.ToString;
 
 /**
  * @Description: 受保护文章密码DTO
- * @Author: Naccl
- * @Date: 2020-09-05
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @NoArgsConstructor
 @Getter

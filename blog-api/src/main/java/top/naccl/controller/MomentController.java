@@ -22,8 +22,8 @@ import top.naccl.util.JwtUtils;
 
 /**
  * @Description: 动态
- * @Author: Naccl
- * @Date: 2020-08-25
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @RestController
 public class MomentController {

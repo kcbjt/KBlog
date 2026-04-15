@@ -2,8 +2,8 @@ package top.naccl.exception;
 
 /**
  * @Description: 404异常
- * @Author: Naccl
- * @Date: 2020-08-14
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 
 public class NotFoundException extends RuntimeException {

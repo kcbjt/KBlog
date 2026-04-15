@@ -19,8 +19,8 @@ import java.util.List;
 
 /**
  * @Description: 友链业务层实现
- * @Author: Naccl
- * @Date: 2020-09-08
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Service
 public class FriendServiceImpl implements FriendService {

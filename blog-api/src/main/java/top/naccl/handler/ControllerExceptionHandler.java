@@ -14,8 +14,8 @@ import jakarta.servlet.http.HttpServletRequest;
 /**
  * @Description: 对Controller层全局异常处理
  * @RestControllerAdvice 捕获异常后，返回json数据类型
- * @Author: Naccl
- * @Date: 2020-08-14
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @RestControllerAdvice
 public class ControllerExceptionHandler {

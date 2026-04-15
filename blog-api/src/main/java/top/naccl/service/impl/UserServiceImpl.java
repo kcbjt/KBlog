@@ -15,8 +15,8 @@ import top.naccl.util.JwtUtils;
 
 /**
  * @Description: 用户业务层接口实现类
- * @Author: Naccl
- * @Date: 2020-07-19
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {

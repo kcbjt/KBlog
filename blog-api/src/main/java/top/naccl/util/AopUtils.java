@@ -13,8 +13,8 @@ import java.util.Set;
 
 /**
  * @Description: AOP工具类
- * @Author: Naccl
- * @Date: 2020-12-02
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 public class AopUtils {
 	private static Set<String> ignoreParams = new HashSet<String>() {

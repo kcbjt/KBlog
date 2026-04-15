@@ -9,8 +9,8 @@ import top.naccl.service.VisitRecordService;
 
 /**
  * @Description: 访问记录业务层实现
- * @Author: Naccl
- * @Date: 2021-02-23
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Service
 public class VisitRecordServiceImpl implements VisitRecordService {

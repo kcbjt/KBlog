@@ -23,8 +23,8 @@ import java.util.List;
 
 /**
  * @Description: Spring Security配置类 (适配 Spring Security 6.x)
- * @Author: Naccl
- * @Date: 2020-07-19
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Configuration
 @EnableWebSecurity // 确保开启 Web 安全配置

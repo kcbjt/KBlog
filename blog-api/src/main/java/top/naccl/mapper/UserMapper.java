@@ -6,8 +6,8 @@ import top.naccl.entity.User;
 
 /**
  * @Description: 用户持久层接口
- * @Author: Naccl
- * @Date: 2020-07-19
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @Mapper
 @Repository

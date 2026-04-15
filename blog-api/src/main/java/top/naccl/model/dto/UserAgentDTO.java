@@ -8,8 +8,8 @@ import lombok.ToString;
 
 /**
  * @Description: UserAgent解析DTO
- * @Author: Naccl
- * @Date: 2022-10-13
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 @AllArgsConstructor
 @NoArgsConstructor

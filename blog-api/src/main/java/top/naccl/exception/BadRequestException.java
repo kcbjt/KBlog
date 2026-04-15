@@ -2,8 +2,8 @@ package top.naccl.exception;
 
 /**
  * @Description: 非法请求异常
- * @Author: Naccl
- * @Date: 2020-07-23
+ * @Author: kcbjt
+ * @Date: 2026-04-15
  */
 
 public class BadRequestException extends RuntimeException {
