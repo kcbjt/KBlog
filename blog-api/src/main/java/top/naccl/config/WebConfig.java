@@ -40,7 +40,17 @@ public class WebConfig implements WebMvcConfigurer {
 	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(accessLimitInterceptor);
+		registry.addInterceptor(accessLimitInterceptor)
+				// 【关键修改】添加排除路径，放行静态资源
+				.excludePathPatterns(
+						"/static/**",      // 放行 Vue 打包的静态资源
+						"/css/**",         // 放行 CSS
+						"/js/**",          // 放行 JS
+						"/img/**",         // 放行图片
+						"/fonts/**",       // 放行字体
+						"/view/**",        // 放行前台页面路径（防止 index.html 被拦截）
+						"/cms/**"          // 放行后台页面路径
+				);;
 	}
 
 	/**
