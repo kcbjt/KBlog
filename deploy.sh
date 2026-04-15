@@ -6,8 +6,6 @@ APP_NAME="my-blog"
 HOST_PORT="18080"
 # 健康检查接口，根据你的后端接口调整，通常是 /actuator/health 或自定义的 /health
 HEALTH_URL="http://127.0.0.1:${HOST_PORT}/actuator/health"
-# 代码仓库地址
-GIT_REPO_URL="https://github.com/kcbjt/KBlog.git"
 # Dockerfile 路径 (如果 Dockerfile 在项目根目录则改为 ./Dockerfile)
 DOCKERFILE_PATH="./Dockerfile"
 # ===========================================
@@ -19,16 +17,6 @@ LATEST_IMAGE="${APP_NAME}:latest"
 
 echo "🚀 开始部署: ${APP_NAME}"
 echo "🏷️  版本: ${VERSION}"
-
-# 2. 获取代码 (如果是第一次运行则 clone，否则 pull)
-if [ ! -d ".git" ]; then
-    echo "📥 首次运行，正在克隆代码..."
-    git clone ${GIT_REPO_URL} .
-else
-    echo "📥 正在更新代码..."
-    git pull
-fi
-
 # 3. 构建新镜像
 echo "🔨 正在构建镜像..."
 # 这里的 . 代表构建上下文是当前目录
