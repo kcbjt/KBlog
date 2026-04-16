@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # 数据库（MySQL）
+  db:
+    image: mysql:9.0.1
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: kcbjt@123
+      MYSQL_DATABASE: blog  # 1. 这里定义了默认数据库名
+    volumes:
+      - db_data:/var/lib/mysql
+      # 2. 【关键修改】挂载初始化脚本
+      # 格式：宿主机路径:容器初始化目录/脚本名.sql
+      - ./sql/blog.sql:/docker-entrypoint-initdb.d/blog.sql
+    networks:
+      - kcbjt-net
+    ports:
+      - "13306:3306"
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 10s
+      retries: 5
+  # 2. Redis 服务
+  redis:
+    image: redis:7.4.0
+    container_name: redis
+    restart: always
+    # 设置密码（建议修改 'your_redis_password'）
+    command: redis-server --requirepass kcbjt@123
+    ports:
+      - "16379:6379" # 宿主机端口:容器端口
+    volumes:
+      - redis_data:/data # 数据持久化
+    networks:
+      - kcbjt-net
+    healthcheck:
+      # 检查 Redis 是否正常响应
+      test: ["CMD", "redis-cli", "-a", "kcbjt@123", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  # Spring Boot 后端
+  blog-api:
+    build: ./blog-api
+    container_name: blog-api
+    restart: always
+    ports:
+      - "18080:8080"
+    environment:
+      # 让 Spring Boot 连接 db 服务（内部 svc 地址）
+      SPRING_DATASOURCE_ADDRESS: jdbc:mysql://mysql:3306/blog?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: kcbjt@123
+      REDIS_HOST: redis
+      REDIS_PASSWORD: kcbjt@123
+      REDIS_PORT: 6379
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - kcbjt-net
+
+  # 后台前端（CMS）
+  blog-cms:
+    build: ./blog-cms
+    container_name: blog-cms
+    restart: always
+    ports:
+      - "18081:80"
+    networks:
+      - kcbjt-net
+
+  # 前台前端（View）
+  blog-view:
+    build: ./blog-view
+    container_name: blog-view
+    restart: always
+    ports:
+      - "18082:80"
+    networks:
+      - kcbjt-net
+
+networks:
+  kcbjt-net:
+    driver: bridge
+
+volumes:
+  db_data:
+  redis_data:
