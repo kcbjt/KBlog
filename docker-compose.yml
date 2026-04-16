@@ -50,7 +50,7 @@ services:
       - "18080:8080"
     environment:
       # 让 Spring Boot 连接 db 服务（内部 svc 地址）
-      SPRING_DATASOURCE_ADDRESS: jdbc:mysql://mysql:3306/blog?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_ADDRESS: jdbc:mysql://mysql:3306/blog?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: kcbjt@123
       REDIS_HOST: redis
@@ -79,6 +79,22 @@ services:
     restart: always
     ports:
       - "18082:80"
+    networks:
+      - kcbjt-net
+
+  # 新增：统一入口网关（Nginx）
+  gateway:
+    image: nginx:alpine
+    container_name: blog-gateway
+    restart: always
+    ports:
+      - "80:80"           # 对外统一端口（可根据需要改为 8080 等）
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - blog-api
+      - blog-cms
+      - blog-view
     networks:
       - kcbjt-net
 
