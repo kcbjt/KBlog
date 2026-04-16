@@ -3,8 +3,8 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 const request = axios.create({
-	baseURL: 'http://localhost:8080/blog-api/',
-	timeout: 10000,
+  baseURL: process.env.VUE_APP_API_BASE_URL || '',  // 使用环境变量
+  timeout: 10000,
 })
 
 // 请求拦截

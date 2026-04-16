@@ -2,7 +2,7 @@ import axios from '@/plugins/axios'
 
 export function getMomentListByPageNum(token, pageNum) {
 	return axios({
-		url: 'moments',
+		url: '/blog-api/moments',
 		method: 'GET',
 		headers: {
 			Authorization: token,

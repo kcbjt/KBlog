@@ -2,7 +2,7 @@ import axios from '@/plugins/axios'
 
 export function getBlogById(token, id) {
 	return axios({
-		url: 'blog',
+		url: '/blog-api/blog',
 		method: 'GET',
 		headers: {
 			Authorization: token,
@@ -15,7 +15,7 @@ export function getBlogById(token, id) {
 
 export function checkBlogPassword(blogPasswordForm) {
 	return axios({
-		url: 'checkBlogPassword',
+		url: '/blog-api/checkBlogPassword',
 		method: 'POST',
 		data: {
 			...blogPasswordForm
@@ -25,7 +25,7 @@ export function checkBlogPassword(blogPasswordForm) {
 
 export function getSearchBlogList(query) {
 	return axios({
-		url: 'searchBlog',
+		url: '/blog-api/searchBlog',
 		method: 'GET',
 		params: {
 			query

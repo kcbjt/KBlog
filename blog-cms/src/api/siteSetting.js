@@ -2,14 +2,14 @@ import axios from '@/util/request'
 
 export function getSiteSettingData() {
 	return axios({
-		url: 'siteSettings',
+		url: '/blog-api/admin/siteSettings',
 		method: 'GET'
 	})
 }
 
 export function update(settings, deleteIds) {
 	return axios({
-		url: 'siteSettings',
+		url: '/blog-api/admin/siteSettings',
 		method: 'POST',
 		data: {
 			settings,
@@ -20,7 +20,7 @@ export function update(settings, deleteIds) {
 
 export function getWebTitleSuffix() {
 	return axios({
-		url: 'webTitleSuffix',
+		url: '/blog-api/admin/webTitleSuffix',
 		method: 'GET'
 	})
 }

@@ -2,7 +2,7 @@ import axios from '@/plugins/axios'
 
 export function getCommentListByQuery(token, query) {
 	return axios({
-		url: 'comments',
+		url: '/blog-api/comments',
 		method: 'GET',
 		headers: {
 			Authorization: token,
@@ -15,7 +15,7 @@ export function getCommentListByQuery(token, query) {
 
 export function submitComment(token, form) {
 	return axios({
-		url: 'comment',
+		url: '/blog-api/comment',
 		method: 'POST',
 		headers: {
 			Authorization: token,

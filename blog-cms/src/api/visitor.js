@@ -2,7 +2,7 @@ import axios from '@/util/request'
 
 export function getVisitorList(queryInfo) {
 	return axios({
-		url: 'visitors',
+		url: '/blog-api/admin/visitors',
 		method: 'GET',
 		params: {
 			...queryInfo
@@ -12,7 +12,7 @@ export function getVisitorList(queryInfo) {
 
 export function deleteVisitor(id, uuid) {
 	return axios({
-		url: 'visitor',
+		url: '/blog-api/admin/visitor',
 		method: 'DELETE',
 		params: {
 			id,

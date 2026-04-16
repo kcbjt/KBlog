@@ -4,8 +4,8 @@ import 'nprogress/nprogress.css'
 import {Message} from 'element-ui'
 
 const request = axios.create({
-	baseURL: 'http://localhost:8080/blog-api/admin/',
-	timeout: 5000
+  baseURL: process.env.VUE_APP_API_BASE_URL || '',  // 使用环境变量
+  timeout: 10000,
 })
 
 let CancelToken = axios.CancelToken

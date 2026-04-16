@@ -2,7 +2,7 @@ import axios from '@/util/request'
 
 export function getDataByQuery(queryInfo) {
 	return axios({
-		url: 'blogs',
+		url: '/blog-api/admin/blogs',
 		method: 'GET',
 		params: {
 			...queryInfo
@@ -12,7 +12,7 @@ export function getDataByQuery(queryInfo) {
 
 export function deleteBlogById(id) {
 	return axios({
-		url: 'blog',
+		url: '/blog-api/admin/blog',
 		method: 'DELETE',
 		params: {
 			id
@@ -22,14 +22,14 @@ export function deleteBlogById(id) {
 
 export function getCategoryAndTag() {
 	return axios({
-		url: 'categoryAndTag',
+		url: '/blog-api/admin/categoryAndTag',
 		method: 'GET'
 	})
 }
 
 export function saveBlog(blog) {
 	return axios({
-		url: 'blog',
+		url: '/blog-api/admin/blog',
 		method: 'POST',
 		data: {
 			...blog
@@ -39,7 +39,7 @@ export function saveBlog(blog) {
 
 export function updateTop(id, top) {
 	return axios({
-		url: 'blog/top',
+		url: '/blog-api/admin/blog/top',
 		method: 'PUT',
 		params: {
 			id,
@@ -50,7 +50,7 @@ export function updateTop(id, top) {
 
 export function updateRecommend(id, recommend) {
 	return axios({
-		url: 'blog/recommend',
+		url: '/blog-api/admin/blog/recommend',
 		method: 'PUT',
 		params: {
 			id,
@@ -71,7 +71,7 @@ export function updateVisibility(id, form) {
 
 export function getBlogById(id) {
 	return axios({
-		url: 'blog',
+		url: '/blog-api/admin/blog',
 		method: 'GET',
 		params: {
 			id
@@ -81,7 +81,7 @@ export function getBlogById(id) {
 
 export function updateBlog(blog) {
 	return axios({
-		url: 'blog',
+		url: '/blog-api/admin/blog',
 		method: 'PUT',
 		data: {
 			...blog

@@ -2,7 +2,7 @@ import axios from '@/util/request'
 
 export function getCommentListByQuery(queryInfo) {
 	return axios({
-		url: 'comments',
+		url: '/blog-api/admin/comments',
 		method: 'GET',
 		params: {
 			...queryInfo
@@ -12,14 +12,14 @@ export function getCommentListByQuery(queryInfo) {
 
 export function getBlogList() {
 	return axios({
-		url: 'blogIdAndTitle',
+		url: '/blog-api/admin/blogIdAndTitle',
 		method: 'GET'
 	})
 }
 
 export function updatePublished(id, published) {
 	return axios({
-		url: 'comment/published',
+		url: '/blog-api/admin/comment/published',
 		method: 'PUT',
 		params: {
 			id,
@@ -30,7 +30,7 @@ export function updatePublished(id, published) {
 
 export function updateNotice(id, notice) {
 	return axios({
-		url: 'comment/notice',
+		url: '/blog-api/admin/comment/notice',
 		method: 'PUT',
 		params: {
 			id,
@@ -41,7 +41,7 @@ export function updateNotice(id, notice) {
 
 export function deleteCommentById(id) {
 	return axios({
-		url: 'comment',
+		url: '/blog-api/admin/comment',
 		method: 'DELETE',
 		params: {
 			id
@@ -51,7 +51,7 @@ export function deleteCommentById(id) {
 
 export function editComment(form) {
 	return axios({
-		url: 'comment',
+		url: '/blog-api/admin/comment',
 		method: 'PUT',
 		data: {
 			...form

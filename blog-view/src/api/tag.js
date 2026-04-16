@@ -2,7 +2,7 @@ import axios from '@/plugins/axios'
 
 export function getBlogListByTagName(tagName, pageNum) {
 	return axios({
-		url: 'tag',
+		url: '/blog-api/tag',
 		method: 'GET',
 		params: {
 			tagName,

@@ -2,7 +2,7 @@ import axios from '@/util/request'
 
 export function getExceptionLogList(queryInfo) {
 	return axios({
-		url: 'exceptionLogs',
+		url: '/blog-api/admin/exceptionLogs',
 		method: 'GET',
 		params: {
 			...queryInfo
@@ -12,7 +12,7 @@ export function getExceptionLogList(queryInfo) {
 
 export function deleteExceptionLogById(id) {
 	return axios({
-		url: 'exceptionLog',
+		url: '/blog-api/admin/exceptionLog',
 		method: 'DELETE',
 		params: {
 			id
