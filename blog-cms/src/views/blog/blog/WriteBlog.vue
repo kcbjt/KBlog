@@ -15,12 +15,22 @@
 			</el-row>
 
 			<el-form-item label="文章描述" prop="description">
-				<mavon-editor v-model="form.description"/>
+				<mavon-editor
+                    ref="refDesc"
+                    v-model="form.description"
+                    @imgAdd="imgAddDesc"
+                    style="min-height: 400px"
+                />
 			</el-form-item>
 
 			<el-form-item label="文章正文" prop="content">
-				<mavon-editor v-model="form.content"/>
-			</el-form-item>
+                <mavon-editor
+                    ref="refContent"
+                    v-model="form.content"
+                    @imgAdd="imgAddContent"
+                    style="min-height: 400px"
+                />
+            </el-form-item>
 
 			<el-row :gutter="20">
 				<el-col :span="12">
@@ -105,6 +115,9 @@
 <script>
 	import Breadcrumb from "@/components/Breadcrumb";
 	import {getCategoryAndTag, saveBlog, getBlogById, updateBlog} from '@/api/blog'
+
+    // 修改点 2: 导入你的上传接口
+	import { upload } from '@/api/upload'
 
 	export default {
 		name: "WriteBlog",
@@ -209,7 +222,33 @@
 						return this.msgError('请填写必要的表单项')
 					}
 				})
-			}
+			},
+			// ==========================================
+            // 修改点 3: 新增图片上传处理方法
+            // ==========================================
+             // 1. 描述图片上传
+             imgAddDesc(pos, $file) {
+                 this.doUpload(pos, $file, 'refDesc');
+             },
+             // 2. 正文图片上传
+             imgAddContent(pos, $file) {
+                 this.doUpload(pos, $file, 'refContent');
+             },
+             // 3. 通用上传逻辑
+             doUpload(pos, $file, refName) {
+                 const formData = new FormData();
+                 formData.append('file', $file);
+
+                 upload($file).then(res => {
+                     if (res.success) {
+                         const url = res.url;
+                         // 精准打击：只更新对应的编辑器
+                         this.$refs[refName].$img2Url(pos, url);
+                     }
+                 }).catch(err => {
+                     this.$message.error('图片上传失败');
+                 });
+             }
 		}
 	}
 </script>

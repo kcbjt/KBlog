@@ -154,11 +154,11 @@
             <optional>true</optional>
         </dependency>
         <!-- 又拍云存储SDK -->
-        <dependency>
-            <groupId>com.upyun</groupId>
-            <artifactId>java-sdk</artifactId>
-            <version>4.2.3</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.upyun</groupId>-->
+<!--            <artifactId>java-sdk</artifactId>-->
+<!--            <version>4.2.3</version>-->
+<!--        </dependency>-->
         <!-- hutool-crypto -->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -192,6 +192,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- MinIO 客户端 -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>8.5.17</version>
+        </dependency>
+        <!-- 可选：文件类型检测 -->
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>3.3.0</version>
         </dependency>
     </dependencies>
 
