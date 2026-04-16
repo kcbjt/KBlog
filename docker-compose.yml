@@ -90,7 +90,7 @@ services:
     ports:
       - "80:80"           # 对外统一端口（可根据需要改为 8080 等）
     volumes:
-      - ./gateway/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./gateway/nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - blog-api
       - blog-cms
