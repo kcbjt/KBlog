@@ -22,6 +22,9 @@ if [ $# -gt 0 ]; then
         cms)
             TARGET="blog-cms"
             ;;
+        gateway)
+            TARGET="gateway"
+            ;;
         all)
             TARGET="all"
             ;;
@@ -31,6 +34,7 @@ if [ $# -gt 0 ]; then
             echo "  api   - 仅更新后端服务 (跳过数据库重启)"
             echo "  view  - 仅更新前台前端"
             echo "  cms   - 仅更新后台前端"
+            echo "  gateway   - 仅更新业务网关"
             echo "  help  - 显示此帮助信息"
             exit 0
             ;;
