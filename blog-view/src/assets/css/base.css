@@ -226,6 +226,10 @@ footer {
     color: #48dbfb !important;
 }
 
+.m-blogName {
+    color: #00cdfb !important;
+}
+
 .m-scaleup {
     transition: .3s ease !important;
 }

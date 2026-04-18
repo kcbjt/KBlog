@@ -1,9 +1,18 @@
 <template>
 	<div ref="nav" class="ui fixed inverted stackable pointing menu" :class="{'transparent':$route.name==='home' && clientSize.clientWidth>768}">
+		<router-link to="/">
+				<h3 class="ui header item m-blogName">{{ blogName }}</h3>
+		</router-link>
 		<div class="ui container">
-			<router-link to="/">
-				<h3 class="ui header item m-blue">{{ blogName }}</h3>
-			</router-link>
+			<el-autocomplete v-model="queryString" :fetch-suggestions="debounceQuery" placeholder="Search..."
+			                 class="right item m-search" :class="{'m-mobile-hide': mobileHide}"
+			                 popper-class="m-search-item" @select="handleSelect">
+				<i class="search icon el-input__icon" slot="suffix"></i>
+				<template slot-scope="{ item }">
+					<div class="title">{{ item.title }}</div>
+					<span class="content">{{ item.content }}</span>
+				</template>
+			</el-autocomplete>
 			<router-link to="/home" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='home'}">
 				<i class="home icon"></i>首页
 			</router-link>
@@ -27,15 +36,29 @@
 			<router-link to="/about" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">
 				<i class="info icon"></i>关于我
 			</router-link>
-			<el-autocomplete v-model="queryString" :fetch-suggestions="debounceQuery" placeholder="Search..."
-			                 class="right item m-search" :class="{'m-mobile-hide': mobileHide}"
-			                 popper-class="m-search-item" @select="handleSelect">
-				<i class="search icon el-input__icon" slot="suffix"></i>
-				<template slot-scope="{ item }">
-					<div class="title">{{ item.title }}</div>
-					<span class="content">{{ item.content }}</span>
-				</template>
-			</el-autocomplete>
+			<a href="https://github.com/kcbjt/KBlog" 
+				target="_blank" rel="noopener noreferrer" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">GitHub
+				<span>
+					<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" 
+					viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+					<path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> 
+						<polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9">
+						</polygon>
+					</svg> 
+				</span>
+		    </a>
+			<a href="https://github.com/kcbjt/KBlog"
+				target="_blank" rel="noopener noreferrer" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">主站
+				<span>
+					<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" 
+					viewBox="0 0 100 100" width="15" height="15" class="icon outbound">
+					<path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> 
+						<polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9">
+						</polygon>
+					</svg> 
+				</span>
+		    </a>
+
 			<button class="ui menu black icon button m-right-top m-mobile-show" @click="toggle">
 				<i class="sidebar icon"></i>
 			</button>
@@ -164,6 +187,18 @@
 	.ui.inverted.pointing.menu.transparent .active.item:hover:after {
 		background: transparent !important;
 	}
+
+	.ui.header.item::before {
+		background: transparent !important;
+	}
+
+/*	.ui.inverted.menu .item {
+		color: rgb(255, 255, 255) !important;
+	}
+
+	.ui.inverted.menu .active.item {
+		color: rgb(255, 255, 255) !important;
+	} */
 
 	.el-dropdown-link {
 		outline-style: none !important;
