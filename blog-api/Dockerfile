@@ -14,9 +14,9 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # =======================================================
-# 第二阶段：运行阶段（轻量级 JRE）
+# 第二阶段：运行阶段amazoncorretto版基础镜像
 # =======================================================
-FROM eclipse-temurin:21-jre-alpine
+FROM amazoncorretto:21-alpine
 
 # 1. 维护者信息
 LABEL maintainer="kcbjt"
