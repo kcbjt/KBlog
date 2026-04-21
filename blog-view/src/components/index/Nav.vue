@@ -47,7 +47,7 @@
 					</svg> 
 				</span>
 		    </a>
-			<a href="https://github.com/kcbjt/KBlog"
+			<a href="https://www.kcbjt.com"
 				target="_blank" rel="noopener noreferrer" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">主站
 				<span>
 					<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" 
